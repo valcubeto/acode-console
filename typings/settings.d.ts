@@ -1,4 +1,3 @@
-
 declare type fileBrowserSettings = {
   showHiddenFiles: string;
   sortByName: string;

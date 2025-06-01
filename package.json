@@ -1,10 +1,10 @@
 {
   "name": "acode-plugin",
   "version": "1.0.0",
-  "description": "Template for Acode plugin",
-  "main": "src/main.js",
-  "repository": "https://github.com/Acode-Foundation/acode-plugin.git",
-  "author": "Acode Foundation",
+  "description": "A Console for Acode",
+  "main": "dist/main.js",
+  "repository": "https://github.com/valcubeto/acode-console.git",
+  "author": "Val Cubeto",
   "license": "MIT",
   "dependencies": {
     "@types/ace": "^0.0.50",
@@ -12,11 +12,15 @@
   },
   "devDependencies": {
     "esbuild": "^0.24.0",
-    "jszip": "^3.10.1"
+    "jszip": "^3.10.1",
+    "@types/bun": "latest"
   },
   "scripts": {
-    "dev": "node esbuild.config.mjs --serve",
-    "build": "node esbuild.config.mjs"
+    "dev": "tsc --noEmit && bun esbuild.config.mjs --serve",
+    "build": "tsc --noEmit && bun esbuild.config.mjs"
   },
-  "browserslist": "cover 100%,not android < 5"
+  "browserslist": "cover 100%,not android < 5",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
 }

@@ -1,19 +1,18 @@
 {
   "id": "acode.plugin",
   "name": "Plugin",
-  "main": "main.js",
+  "main": "dist/main.js",
   "version": "1.0.0",
-  "readme": "readme.md",
+  "readme": "README.md",
   "icon": "icon.png",
   "files": [],
   "minVersionCode" : 290,
   "license": "MIT",
-  "changelogs": "changelogs.md",
   "keywords": [],
   "price": 0,
   "author": {
-    "name": "",
-    "email": "",
-    "github": ""
+    "name": "Val Cubeto",
+    "email": "valcubeto@gmail.com",
+    "github": "valcubeto"
   }
 }
