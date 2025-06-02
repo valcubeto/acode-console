@@ -1,8 +1,15 @@
-import { readFileSync } from 'fs';
-const plugin = JSON.parse(readFileSync('plugin.json', 'utf8'));
+// Just in case
+/// <reference path="../typings/index.d.ts" />
+import { readFileSync } from 'fs'
+const pluginData = JSON.parse(readFileSync('plugin.json', 'utf8'))
 
 class AcodePlugin {
-  public baseUrl: string | undefined;
+  public baseUrl: string | undefined
+  public id: string
+
+  constructor(data: any) {
+    this.id = data.id
+  }
 
   async init($page: WCPage, cacheFile: any, cacheFileUrl: string): Promise<void> {
     // Add your initialization code here
@@ -14,15 +21,15 @@ class AcodePlugin {
 }
 
 if (window.acode) {
-  const acodePlugin = new AcodePlugin();
+  const plugin = new AcodePlugin(pluginData)
   acode.setPluginInit(plugin.id, async (baseUrl: string, $page: WCPage, { cacheFileUrl, cacheFile }: any) => {
     if (!baseUrl.endsWith('/')) {
-      baseUrl += '/';
+      baseUrl += '/'
     }
-    acodePlugin.baseUrl = baseUrl;
-    await acodePlugin.init($page, cacheFile, cacheFileUrl);
-  });
+    plugin.baseUrl = baseUrl
+    await plugin.init($page, cacheFile, cacheFileUrl)
+  })
   acode.setPluginUnmount(plugin.id, () => {
-      acodePlugin.destroy();
-  });
+    plugin.destroy()
+  })
 }

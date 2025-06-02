@@ -5,7 +5,7 @@
     "module": "system",
     "moduleDetection": "force",
     "allowJs": true,
-		"outFile": "src/main.js",
+		"outFile": "out/main.js",
 
     "strict": true,
     "skipLibCheck": true,
@@ -14,5 +14,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
-  }
+  },
+  "include": ["src/**/*.ts", "typings/**/*.d.ts"],
+  "exclude": ["out", "node_modules"]
 }

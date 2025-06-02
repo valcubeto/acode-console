@@ -17,7 +17,7 @@
   },
   "scripts": {
     "dev": "tsc --noEmit && bun esbuild.config.mjs --serve",
-    "build": "tsc --noEmit && bun esbuild.config.mjs"
+    "build": "tsc && bun esbuild.config.mjs"
   },
   "browserslist": "cover 100%,not android < 5",
   "peerDependencies": {

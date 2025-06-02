@@ -5,7 +5,7 @@ const isServe = process.argv.includes("--serve");
 
 // Function to pack the ZIP file
 function packZip() {
-  exec("bun .vscode/pack-zip.js", (err, stdout, stderr) => {
+  exec("bun src/pack-zip.js", (err, stdout, stderr) => {
     if (err || stderr) {
       console.error("Error packing zip:");
       console.error({ err, stderr });
@@ -25,12 +25,14 @@ const zipPlugin = {
 
 // Base build configuration
 let buildConfig = {
-  entryPoints: ["src/main.js"],
+  entryPoints: ["out/main.js"],
   bundle: true,
   minify: true,
   logLevel: "info",
   color: true,
-  outdir: "dist",
+  outfile: "dist/main.js",
+  platform: 'node',
+  external: ['path', 'fs'],
   plugins: [zipPlugin]
 };
 
