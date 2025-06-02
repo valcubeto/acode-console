@@ -23,7 +23,7 @@ loadFile('', distFolder);
 
 zip
   .generateNodeStream({ type: 'nodebuffer', streamFiles: true })
-  .pipe(fs.createWriteStream(path.join(__dirname, '../dist.zip')))
+  .pipe(fs.createWriteStream(path.join(__dirname, '../out/dist.zip')))
   .on('finish', () => {
     console.log('Plugin dist.zip written.');
   });
